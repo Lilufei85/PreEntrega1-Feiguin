@@ -94,9 +94,9 @@ for (i=1 ; i < cantPersonas; i++) {
         
 
 checked = 0;
+let email = prompt ("Por último, ingresa tu email. Te contactaremos con toda la información para completar el pago y asegurar tu reserva");
 
 while (checked === 0) {
-    let email = prompt ("Por último, ingresa tu email. Te contactaremos con toda la información para completar el pago y asegurar tu reserva");
 
     if (email === ""){
         mostrarAlert ("No ingresaste tu email");
