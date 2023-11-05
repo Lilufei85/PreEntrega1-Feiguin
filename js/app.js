@@ -1,19 +1,19 @@
 console.log("Conectado");
 
 
-//const mostrarAlert = (mensaje) => {return mensaje;}; AYUDA, NO ME FUNCIONA CON ARROW FUNCTION!
+//const MostrarAlert = (mensaje) => {return mensaje;}; AYUDA, NO ME FUNCIONA CON ARROW FUNCTION!
 
 
 const simuladorBtn = document.getElementById("reserva");
 
 simuladorBtn.addEventListener("click", function() {
 
-    function validateEmail (email){
+    const validateEmail = function (email) {
         let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
     }
     
-    function mostrarAlert (mensaje){
+    const mostrarAlert = function (mensaje){
         alert (mensaje);
     }
 
