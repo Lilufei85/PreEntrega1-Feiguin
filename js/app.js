@@ -1,7 +1,7 @@
 console.log("Conectado");
 
 
-//function validationString () {}
+const mostrarAlert = (mensaje) => {return mensaje;};
 
 
 
@@ -11,16 +11,16 @@ while (checked === 0) {
     let cantDias = prompt ("Ingrese la cantidad de días que deseas hospedarte");
 
     if (cantDias === ""){
-        alert ("No ingresaste la cantidad de días que deseas hospedarte");
+        mostrarAlert ("No ingresaste la cantidad de días que deseas hospedarte");
     }
     else if ( parseInt (cantDias) != cantDias) {
-        alert ("Ingresa un número válido");
+        mostrarAlert ("Ingresa un número válido");
     }
     else if ( cantDias < 1) {
-        alert ("El número de días no puede ser menor a 1");
+        mostrarAlert ("El número de días no puede ser menor a 1");
     }
     else {  
-        alert ("Bien, continuemos");
+        mostrarAlert ("Bien, continuemos");
         console.log (cantDias); 
         checked = 1;
     } 
@@ -32,19 +32,19 @@ let cantPersonas = prompt ("Ingrese la cantidad de personas que desean hospedars
 
 while (checked === 0) {
     if (cantPersonas === ""){
-        alert ("No ingresaste la cantidad de personas que desean hospedarse");
+        mostrarAlert ("No ingresaste la cantidad de personas que desean hospedarse");
         cantPersonas = prompt ("Ingrese la cantidad de personas que desean hospedarse");
     }
     else if ( parseInt (cantPersonas) != cantPersonas) {
-        alert ("Ingresa un número válido");
+        mostrarAlert ("Ingresa un número válido");
         cantPersonas = prompt ("Ingrese la cantidad de personas que desean hospedarse");
     }
     else if ( cantPersonas < 1) {
-        alert ("La cantidad de personas que desean hospedarse no puede ser menor a 1");
+        mostrarAlert ("La cantidad de personas que desean hospedarse no puede ser menor a 1");
         cantPersonas = prompt ("Ingrese la cantidad de personas que desean hospedarse");
     }
     else {
-        alert ("Bien, continuemos");
+        mostrarAlert ("Bien, continuemos");
         console.log (cantPersonas); 
         checked = 1;
     } 
@@ -55,15 +55,15 @@ let nombre1 = prompt ("Ingresa el nombre del/ la primer huésped");
 
 while (checked === 0) {
     if (nombre1 === ""){
-        alert ("No ingresaste nombre y apellido");
+        mostrarAlert ("No ingresaste nombre y apellido");
         nombre1 = prompt ("Ingresa el nombre del/ la primer huésped");
     }
     else if (/^[0-9]+$/.test(nombre1) === true) {
-        alert ("Ingresa un nombre y apellido válido sin números");
+        mostrarAlert ("Ingresa un nombre y apellido válido sin números");
         nombre1 = prompt ("Ingresa el nombre del/ la primer huésped");
     }
     else {
-        alert ("Nombre y apellido registrado");
+        mostrarAlert ("Nombre y apellido registrado");
         console.log (nombre1); 
         checked = 1;
     }   
@@ -75,15 +75,15 @@ for (i=1 ; i < cantPersonas; i++) {
     checked = 0;
     while (checked === 0) {
         if (nombre2 === ""){
-            alert ("No ingresaste el nombre y apellido");
+            mostrarAlert ("No ingresaste el nombre y apellido");
             nombre2 = prompt ("Ingrese el nombre y apellido del/la siguiente huésped");
         }
         else if (/^[0-9]+$/.test(nombre2) === true) {
-            alert ("Ingresa un nombre y apellido válido sin números");
+            mostrarAlert ("Ingresa un nombre y apellido válido sin números");
             nombre2 = prompt ("Ingrese el nombre y apellido del/la siguiente huésped");
         }
         else {
-            alert ("Nombre y apellido registrado");
+            mostrarAlert ("Nombre y apellido registrado");
             console.log (nombre2); 
             checked = 1;
         } 
@@ -97,7 +97,7 @@ while (checked === 0) {
     let email = prompt ("Por último, ingresa tu email. Te contactaremos con toda la información para completar el pago y asegurar tu reserva");
 
     if (email === ""){
-        alert ("No ingresaste tu email");
+        mostrarAlert ("No ingresaste tu email");
         email = prompt ("Ingresa tu email");
     }
     else {
