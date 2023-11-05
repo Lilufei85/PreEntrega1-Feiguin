@@ -28,19 +28,20 @@ while (checked === 0) {
 
 checked = 0;
 
-let cantPersonas = parseInt (prompt ("Para cuántas personas quieres hacer la reserva?"));
+let cantPersonas = prompt ("Ingrese la cantidad de personas que desean hospedarse");
 
 while (checked === 0) {
-    let cantPersonas = prompt ("Ingrese la cantidad de personas que desean hospedarse");
-
     if (cantPersonas === ""){
         alert ("No ingresaste la cantidad de personas que desean hospedarse");
+        cantPersonas = prompt ("Ingrese la cantidad de personas que desean hospedarse");
     }
     else if ( parseInt (cantPersonas) != cantPersonas) {
         alert ("Ingresa un número válido");
+        cantPersonas = prompt ("Ingrese la cantidad de personas que desean hospedarse");
     }
     else if ( cantPersonas < 1) {
         alert ("La cantidad de personas que desean hospedarse no puede ser menor a 1");
+        cantPersonas = prompt ("Ingrese la cantidad de personas que desean hospedarse");
     }
     else {
         alert ("Bien, continuemos");
@@ -49,17 +50,17 @@ while (checked === 0) {
     } 
 }  
 
-
+checked = 0;
+let nombre1 = prompt ("Ingresa el nombre del/ la primer huésped");
 
 while (checked === 0) {
-    let nombre1 = prompt ("Ingresa el nombre del/ la primer huésped");
     if (nombre1 === ""){
-        alert ("No ingresaste tu nombre y apellido");
-        //nombre1 = prompt ("Ingresa el nombre del/ la primer huésped");
+        alert ("No ingresaste nombre y apellido");
+        nombre1 = prompt ("Ingresa el nombre del/ la primer huésped");
     }
     else if (/^[0-9]+$/.test(nombre1) === true) {
         alert ("Ingresa un nombre y apellido válido sin números");
-        //nombre1 = prompt ("Ingresa el nombre del/ la primer huésped");
+        nombre1 = prompt ("Ingresa el nombre del/ la primer huésped");
     }
     else {
         alert ("Nombre y apellido registrado");
@@ -75,7 +76,7 @@ for (i=1 ; i <= cantPersonas; i++) {
         let nombre2 = prompt ("Ingrese el nombre y apellido del/la siguiente huésped");
 
         if (nombre2 === ""){
-            alert ("No ingresaste tu nombre y apellido");
+            alert ("No ingresaste el nombre y apellido");
         }
         else if (/^[0-9]+$/.test(nombre2) === true) {
             alert ("Ingresa un nombre y apellido válido sin números");
@@ -109,7 +110,7 @@ while (checked === 0) {
 
 
 /** sugerencia de Amador para probar luego
- for (i=1;i<=cantPersonas;i++){
+for (i=1;i<=cantPersonas;i++){
     let nombre = prompt ("Ingresa el nombre del huésped no."+i);
     while(/^[0-9]+$/.test(nombre)){
         alert('No ingresaste tu nombre y apellido');
