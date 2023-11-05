@@ -1,0 +1,10 @@
+
+.header {
+    @include flex (row,center);
+    padding: 15px;
+}
+
+.center-column {
+    @include flex (column,center);
+    padding: 15px;
+}
