@@ -1,0 +1,13 @@
+body {
+    height: 100vh;
+}
+
+.logo-index {
+    @include medidas (30%, auto, 10px, 15vh);
+    
+}
+
+.flex-main {
+    @include flex (column, center);
+    align-items: center;   
+} 
