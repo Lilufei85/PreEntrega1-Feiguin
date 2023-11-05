@@ -1,4 +1,22 @@
+
+
+
 h1 {
-    font-size: 15px;
-    color: $color-3;
+    @include typos ($font-1, 1.7rem, $color-2);
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+p {
+    @include typos ($font-1, 1.4rem, $color-2);
+    text-align: center;
+}
+
+.negrita {
+    font-weight: 600px;
+}
+
+.thin {
+    font-weight: 100px;
 }

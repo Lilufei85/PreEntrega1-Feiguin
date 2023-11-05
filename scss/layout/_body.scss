@@ -3,11 +3,38 @@ body {
 }
 
 .logo-index {
-    @include medidas (30%, auto, 10px, 15vh);
+    @include medidas (45%, auto, 10px, 15vh);
     
 }
 
 .flex-main {
     @include flex (column, center);
-    align-items: center;   
+    align-items: center; 
+    row-gap: 45px;  
 } 
+
+.foto-100{
+    width:100%;
+}
+
+.textos {
+    margin-left:40px ;
+    margin-right:40px ;
+}
+
+.button-call-action {
+    border: solid 2px;
+    border-color: $color-2;
+    @include typos ($font-1, 1.2rem, $color-2);
+    background-color: white;
+    border-radius: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 400;
+    width: 300px;
+    height: 25px;
+}
