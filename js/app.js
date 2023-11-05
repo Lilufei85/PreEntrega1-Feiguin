@@ -1,9 +1,11 @@
 console.log("Conectado");
 
 
-const mostrarAlert = (mensaje) => {return mensaje;};
+//const mostrarAlert = (mensaje) => {return mensaje;};
 
-
+function mostrarAlert (mensaje){
+    alert (mensaje);
+}
 
 let checked = 0;
 
