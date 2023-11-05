@@ -69,17 +69,18 @@ while (checked === 0) {
     }   
 }
 
-checked = 0;
 
-for (i=1 ; i <= cantPersonas; i++) {
+for (i=1 ; i < cantPersonas; i++) {
+    let nombre2 = prompt ("Ingrese el nombre y apellido del/la siguiente huésped");
+    checked = 0;
     while (checked === 0) {
-        let nombre2 = prompt ("Ingrese el nombre y apellido del/la siguiente huésped");
-
         if (nombre2 === ""){
             alert ("No ingresaste el nombre y apellido");
+            nombre2 = prompt ("Ingrese el nombre y apellido del/la siguiente huésped");
         }
         else if (/^[0-9]+$/.test(nombre2) === true) {
             alert ("Ingresa un nombre y apellido válido sin números");
+            nombre2 = prompt ("Ingrese el nombre y apellido del/la siguiente huésped");
         }
         else {
             alert ("Nombre y apellido registrado");
