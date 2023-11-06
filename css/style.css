@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +15,8 @@ h1 {
   color: #956852;
   margin-top: 30px;
   margin-bottom: 10px;
-  text-align: center; }
+  text-align: center;
+  font-weight: 400; }
 
 p {
   font-family: "Montserrat", sans-serif;
@@ -23,12 +25,61 @@ p {
   text-align: center; }
 
 .negrita {
-  font-weight: 600px; }
+  font-weight: 600; }
 
-.thin {
-  font-weight: 100px; }
+@keyframes vibrarC {
+  /*** A N I M A C I O N   D E S C A R G A    C V ***/
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0); }
+  20% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px); }
+  40% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px); }
+  60% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px); }
+  80% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px); }
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0); } }
 
-/*@import "./components/bs";*/
+.centrado-vertical {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  padding: 20px; }
+
+.button-call-action {
+  border: solid 2px;
+  border-color: #956852;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  color: #956852;
+  background-color: white;
+  border-radius: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 25px;
+  font-weight: 400;
+  width: 300px;
+  height: 25px;
+  align-self: center;
+  animation-name: vibrarC;
+  /*** A N I M A C I O N   BOTÓN SIMULADOR ***/
+  animation-duration: 3s;
+  animation-iteration-count: infinite; }
+
 body {
   height: 100vh; }
 
