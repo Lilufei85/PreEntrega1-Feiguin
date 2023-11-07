@@ -2,15 +2,11 @@ body {
     height: 100vh;
 }
 
-.logo-index {
-    @include medidas (45%, auto, 10px, 15vh);
-    
-}
 
 .flex-main {
     @include flex (column, center);
     align-items: center; 
-    row-gap: 45px;  
+    row-gap: 30px;  
 } 
 
 .foto-100{

@@ -1,6 +1,18 @@
 //ESTILOS DE HEADER
 
 
+.centrado-vertical {
+    width: 100%;
+    @include flex (row, center);
+    align-self: center;
+}
+
+
+.logo-index {
+    @include medidas (45%, auto, 10px, 5vh);
+    
+}
+
 @keyframes vibrarC { /*** A N I M A C I O N   D E S C A R G A    C V ***/
     0% {
     -webkit-transform: translate(0);
@@ -28,9 +40,3 @@
     }
 }
 
-.centrado-vertical {
-    width: 100%;
-    @include flex (row, center);
-    align-self: center;
-    padding: 20px;
-}
