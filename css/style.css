@@ -9,14 +9,14 @@ html {
 
 /*$color-2 = background footer, textos grales*/
 /*$color-2 = typo footer*/
-h1 {
+h1, h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 1.7rem;
   color: #956852;
   margin-top: 30px;
   margin-bottom: 10px;
   text-align: center;
-  font-weight: 400; }
+  font-weight: 600; }
 
 p {
   font-family: "Montserrat", sans-serif;
@@ -26,6 +26,15 @@ p {
 
 .negrita {
   font-weight: 600; }
+
+.italic {
+  font-style: italic; }
+
+.turquesa {
+  color: #175754; }
+
+.doce {
+  font-size: 1.2rem; }
 
 .centrado-vertical {
   width: 100%;
@@ -85,9 +94,32 @@ p {
   animation-duration: 3s;
   animation-iteration-count: infinite; }
 
+.button-como-llegar {
+  border: solid 2px;
+  border-color: #956852;
+  border-radius: 7px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  color: #C7B6BA;
+  background-color: #956852;
+  text-decoration: none;
+  cursor: pointer;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 25px;
+  font-weight: 400;
+  align-self: center; }
+
 body {
   height: 100vh; }
 
+/*.centrado-vertical{
+    @include flex (row, center);  
+    BORRAR LOS CENTRADOS VERTICALES Q POR AHORA NO SE NECESITA  
+}
+*/
 .flex-main {
   display: flex;
   flex-direction: column;
@@ -95,12 +127,69 @@ body {
   align-items: center;
   row-gap: 30px; }
 
-.foto-100 {
+.w-100 {
   width: 100%; }
 
 .textos {
   margin-left: 40px;
   margin-right: 40px; }
+
+.width-55 {
+  width: 55%; }
+
+.width-70 {
+  width: 70%; }
+
+.contenedor-ig {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  row-gap: 4px;
+  column-gap: 5px; }
+
+.img-ig {
+  border-color: #FFFAF8;
+  width: 160px;
+  height: 160px; }
+
+.contenedor-evento {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 20px; }
+
+.cuadrante-izq-evento {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 0;
+  width: 50%; }
+  .cuadrante-izq-evento ul li p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem;
+    color: #956852;
+    text-align: flex-end; }
+
+.cuadrante-der-evento {
+  width: 50%; }
+  .cuadrante-der-evento ul li {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    color: #956852; }
+
+li {
+  list-style: none; }
+
+.title-evento {
+  font-weight: 600; }
+
+.flex-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; }
 
 footer {
   background-color: #956852;
