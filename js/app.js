@@ -1,11 +1,31 @@
 
 
-const simuladorBtn = document.getElementById("reserva");
+const reservas = [];
+
+
+class Reserva {
+    constructor (nroReserva, cantDias, cantHuespedes, huespedes, email) {
+        this.nroReserva = nroReserva;
+        this.cantDias = cantDias;
+        this.cantHuespedes = cantHuespedes;
+        this.huespedes = huespedes;
+        this.email = email;
+        this.mensaje = function () {
+            console.log ("Reserva nro " + nroReserva + " confirmada. Por " + cantDias + " días para " + cantHuespedes + " personas.")
+        }
+    }
+}
+
+const nuevaReserva = new Reserva;
+nuevaReserva.huespedes = [];
+
+
+const simuladorBtn = document.getElementById("reservarViaTransfe");
 
 simuladorBtn.addEventListener("click", function() {
-
-    let iHuespedes;
     let iDias;
+    let iHuespedes;
+
 
     function validateCantDias () {
         let checked = 0;
@@ -25,7 +45,9 @@ simuladorBtn.addEventListener("click", function() {
                 alert ("Bien, continuemos");
                 checked = 1;
                 iDias = cantDias;
+                nuevaReserva.cantDias = iDias;
                 return iDias; 
+
             } 
         }
     
@@ -53,6 +75,7 @@ simuladorBtn.addEventListener("click", function() {
                 alert ("Bien, continuemos");
                 checked = 1;
                 iHuespedes = cantPersonas;
+                nuevaReserva.cantHuespedes = iHuespedes;
                 return iHuespedes 
             } 
         }  
@@ -73,6 +96,7 @@ simuladorBtn.addEventListener("click", function() {
             }
             else {
                 alert ("Nombre y apellido registrado");
+                nuevaReserva.huespedes.push (nombre1);
                 checked = 1;
             }   
         }
@@ -92,6 +116,7 @@ simuladorBtn.addEventListener("click", function() {
                     nombre2 = prompt ("Ingrese el nombre y apellido del/la siguiente huésped");
                 }
                 else {
+                    nuevaReserva.huespedes.push (nombre2);
                     alert ("Nombre y apellido registrado");
                     checked = 1;
                 } 
@@ -107,7 +132,7 @@ simuladorBtn.addEventListener("click", function() {
         }
     
         checked = 0;
-        let email = prompt ("Por último, ingresa tu email. Te contactaremos con toda la información para completar el pago y asegurar tu reserva");
+        email = prompt ("Por último, ingresa tu email. Te contactaremos con toda la información para completar el pago y asegurar tu reserva");
     
         while (checked === 0) {
             if (email === ""){
@@ -119,6 +144,7 @@ simuladorBtn.addEventListener("click", function() {
                 email = prompt ("Ingresa tu email");        
             }
             else {
+                nuevaReserva.email = email;
                 alert ("Quedó registrada tu consulta por una estadía de " + iDias + " días para " + iHuespedes + " personas. A la brevedad, te enviaremos toda la información por email. Gracias!");
                 checked = 1;
             } 
@@ -126,10 +152,31 @@ simuladorBtn.addEventListener("click", function() {
     }
     
     
+    function generarNumeroReserva () {
+        nuevaReserva.nroReserva = ( Math.ceil (Math.random () * 9999 + 1));
+    }
+
+    
+    function uploadReserva () {
+        reservas.push (nuevaReserva);
+    }
+
+    
     validateCantDias ();
     validateCantHuesped ();
     validateHuesped1 ();
     validateHuespedes ();
     validateEmail ();
-
+    generarNumeroReserva ();
+    uploadReserva ();
 });
+
+
+const simuladorBtn2 = document.getElementById("buscarReserva");
+
+simuladorBtn2.addEventListener("click", function() {
+    let busqueda = prompt ("A nombre de quién está la reserva que buscás?");
+    
+    const BusquedaReserva = reservas.filter ( (el) => el.huespedes.includes (busqueda));
+    console.log (BusquedaReserva);
+})
