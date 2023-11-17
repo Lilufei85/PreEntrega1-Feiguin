@@ -176,7 +176,13 @@ const simuladorBtn2 = document.getElementById("buscarReserva");
 
 simuladorBtn2.addEventListener("click", function() {
     let busqueda = prompt ("A nombre de quién está la reserva que buscás?");
+        const BusquedaReserva = reservas.filter ( (el) => el.huespedes.includes (busqueda));
+        console.log (BusquedaReserva);
     
-    const BusquedaReserva = reservas.filter ( (el) => el.huespedes.includes (busqueda));
-    console.log (BusquedaReserva);
+    if (BusquedaReserva.length === 0) {
+    console.log("No se encontró ninguna búsqueda bajo ese nombre.");
+    } else {
+        console.log("Se encontraron las siguientes reservas bajo el nombre", busqueda, ": ", BusquedaReserva);
+    }
+    
 })
