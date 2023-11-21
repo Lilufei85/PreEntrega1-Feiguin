@@ -16,15 +16,15 @@ class Reserva {
     }
 }
 
-const nuevaReserva = new Reserva;
-nuevaReserva.huespedes = [];
+//const nuevaReserva = new Reserva;
+//nuevaReserva.huespedes = [];
 
 
 const simuladorBtn = document.getElementById("reservarViaTransfe");
 
 simuladorBtn.addEventListener("click", function() {
-    let iDias;
-    let iHuespedes;
+    //let iDias;
+    //let iHuespedes;
 
 
     function validateCantDias () {
@@ -44,10 +44,7 @@ simuladorBtn.addEventListener("click", function() {
             else {  
                 alert ("Bien, continuemos");
                 checked = 1;
-                iDias = cantDias;
-                nuevaReserva.cantDias = iDias;
-                return iDias; 
-
+                return cantDias; 
             } 
         }
     
@@ -74,9 +71,9 @@ simuladorBtn.addEventListener("click", function() {
             else {
                 alert ("Bien, continuemos");
                 checked = 1;
-                iHuespedes = cantPersonas;
-                nuevaReserva.cantHuespedes = iHuespedes;
-                return iHuespedes 
+                //iHuespedes = cantPersonas;
+                //nuevaReserva.cantHuespedes = iHuespedes;
+                return cantPersonas; //iHuespedes 
             } 
         }  
     }
@@ -96,7 +93,8 @@ simuladorBtn.addEventListener("click", function() {
             }
             else {
                 alert ("Nombre y apellido registrado");
-                nuevaReserva.huespedes.push (nombre1);
+                //nuevaReserva.huespedes.push (nombre1);
+                return nombre1;
                 checked = 1;
             }   
         }
@@ -144,32 +142,34 @@ simuladorBtn.addEventListener("click", function() {
                 email = prompt ("Ingresa tu email");        
             }
             else {
-                nuevaReserva.email = email;
+                //nuevaReserva.email = email;
+                
                 alert ("Quedó registrada tu consulta por una estadía de " + iDias + " días para " + iHuespedes + " personas. A la brevedad, te enviaremos toda la información por email. Gracias!");
                 checked = 1;
+                return email;
             } 
         }   
     }
     
     
     function generarNumeroReserva () {
-        nuevaReserva.nroReserva = ( Math.ceil (Math.random () * 9999 + 1));
+        return ( Math.ceil (Math.random () * 9999 + 1));
     }
-
     
     function uploadReserva () {
-        reservas.push (nuevaReserva);
+        reservas.push (new Reserva(
+            generarNumeroReserva(),
+            validateCantDias(),
+            validateCantHuesped(),
+            validateHuespedes(),
+            validateEmail()
+        ));
     }
-
     
-    validateCantDias ();
-    validateCantHuesped ();
-    validateHuesped1 ();
-    validateHuespedes ();
-    validateEmail ();
-    generarNumeroReserva ();
     uploadReserva ();
 });
+
+
 
 
 const simuladorBtn2 = document.getElementById("buscarReserva");
