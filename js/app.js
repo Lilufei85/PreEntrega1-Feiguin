@@ -23,8 +23,8 @@ class Reserva {
 const simuladorBtn = document.getElementById("reservarViaTransfe");
 
 simuladorBtn.addEventListener("click", function() {
-    //let iDias;
-    //let iHuespedes;
+    let iDias;
+    let iHuespedes;
 
 
     function validateCantDias () {
@@ -44,6 +44,7 @@ simuladorBtn.addEventListener("click", function() {
             else {  
                 alert ("Bien, continuemos");
                 checked = 1;
+                iDias = cantDias;
                 return cantDias; 
             } 
         }
@@ -71,14 +72,15 @@ simuladorBtn.addEventListener("click", function() {
             else {
                 alert ("Bien, continuemos");
                 checked = 1;
-                //iHuespedes = cantPersonas;
+                iHuespedes = cantPersonas;
                 //nuevaReserva.cantHuespedes = iHuespedes;
-                return cantPersonas; //iHuespedes 
+                return cantPersonas; //iHuespedes;
             } 
         }  
     }
 
-    function validateHuesped1 (){
+    
+    /* function validateHuesped1 (){
         checked = 0;
         let nombre1 = prompt ("Ingresa el nombre del/ la primer huésped");
     
@@ -93,39 +95,40 @@ simuladorBtn.addEventListener("click", function() {
             }
             else {
                 alert ("Nombre y apellido registrado");
-                //nuevaReserva.huespedes.push (nombre1);
+                nuevaReserva.huespedes.push (nombre1);
                 return nombre1;
                 checked = 1;
-            }   
+                
+            } 
+            
         }
-    }
+    } */
 
-    function validateHuespedes() {
+
+    function validateHuespedes () {
         let huespedes = [];
-        huespedes.push (validateHuesped1());
-        console.log (huespedes);
-debugger
-        // Cambio: Reemplacé iHuespedes por la variable definida localmente dentro de la función.
-        for (let i = 1; i < cantPersonas; i++) {
-            let nombre2 = prompt("Ingrese el nombre y apellido del/la siguiente huésped");
+        for (i=0 ; i < iHuespedes; i++) {
+            let nombre2 = prompt ("Ingrese el nombre y apellido del/la huésped número " + parseInt(i+1));
             checked = 0;
             while (checked === 0) {
-                if (nombre2 === "") {
-                    alert("No ingresaste el nombre y apellido");
-                    nombre2 = prompt("Ingrese el nombre y apellido del/la siguiente huésped");
-                } else if (/^[0-9]+$/.test(nombre2) === true) {
-                    alert("Ingresa un nombre y apellido válido sin números");
-                    nombre2 = prompt("Ingrese el nombre y apellido del/la siguiente huésped");
-                } else {
-                    huespedes.push(nombre2);
-                    alert("Nombre y apellido registrado");
-                    checked = 1;
+                if (nombre2 === ""){
+                    alert ("No ingresaste el nombre y apellido");
+                    nombre2 = prompt ("Ingrese el nombre y apellido del/la huésped número " + parseInt(i+1));
                 }
-            }
+                else if (/^[0-9]+$/.test(nombre2) === true) {
+                    alert ("Ingresa un nombre y apellido válido sin números");
+                    nombre2 = prompt ("Ingrese el nombre y apellido del/la huésped número " + parseInt(i+1));
+                }
+                else {
+                    huespedes.push (nombre2);
+                    alert ("Nombre y apellido registrado");
+                    checked = 1;
+                } 
+            }                 
         }
-
-        return huespedes;
+        return (huespedes);
     }
+
 
     function validateEmail (){
         const validateEmail = function (email) {
@@ -165,7 +168,7 @@ debugger
             generarNumeroReserva(),
             validateCantDias(),
             validateCantHuesped(),
-            validateHuesped1(),
+            //validateHuesped1 (),
             validateHuespedes(),
             validateEmail()
         ));
