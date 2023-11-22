@@ -100,28 +100,32 @@ simuladorBtn.addEventListener("click", function() {
         }
     }
 
-    function validateHuespedes () {
-        for (i=1 ; i < iHuespedes; i++) {
-            let nombre2 = prompt ("Ingrese el nombre y apellido del/la siguiente huésped");
+    function validateHuespedes() {
+        let huespedes = [];
+        huespedes.push (validateHuesped1());
+        console.log (huespedes);
+debugger
+        // Cambio: Reemplacé iHuespedes por la variable definida localmente dentro de la función.
+        for (let i = 1; i < cantPersonas; i++) {
+            let nombre2 = prompt("Ingrese el nombre y apellido del/la siguiente huésped");
             checked = 0;
             while (checked === 0) {
-                if (nombre2 === ""){
-                    alert ("No ingresaste el nombre y apellido");
-                    nombre2 = prompt ("Ingrese el nombre y apellido del/la siguiente huésped");
-                }
-                else if (/^[0-9]+$/.test(nombre2) === true) {
-                    alert ("Ingresa un nombre y apellido válido sin números");
-                    nombre2 = prompt ("Ingrese el nombre y apellido del/la siguiente huésped");
-                }
-                else {
-                    nuevaReserva.huespedes.push (nombre2);
-                    alert ("Nombre y apellido registrado");
+                if (nombre2 === "") {
+                    alert("No ingresaste el nombre y apellido");
+                    nombre2 = prompt("Ingrese el nombre y apellido del/la siguiente huésped");
+                } else if (/^[0-9]+$/.test(nombre2) === true) {
+                    alert("Ingresa un nombre y apellido válido sin números");
+                    nombre2 = prompt("Ingrese el nombre y apellido del/la siguiente huésped");
+                } else {
+                    huespedes.push(nombre2);
+                    alert("Nombre y apellido registrado");
                     checked = 1;
-                } 
-            }      
+                }
+            }
         }
-    }
 
+        return huespedes;
+    }
 
     function validateEmail (){
         const validateEmail = function (email) {
@@ -161,6 +165,7 @@ simuladorBtn.addEventListener("click", function() {
             generarNumeroReserva(),
             validateCantDias(),
             validateCantHuesped(),
+            validateHuesped1(),
             validateHuespedes(),
             validateEmail()
         ));
