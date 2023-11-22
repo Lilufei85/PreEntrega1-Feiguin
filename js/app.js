@@ -11,7 +11,7 @@ class Reserva {
         this.huespedes = huespedes;
         this.email = email;
         this.mensaje = function () {
-            console.log ("Reserva nro " + nroReserva + " confirmada. Por " + cantDias + " días para " + cantHuespedes + " personas.")
+            console.log (`Reserva nro ${nroReserva} confirmada. Por ${cantDias} días para ${cantHuespedes} personas.`)
         }
     }
 }
@@ -108,16 +108,16 @@ simuladorBtn.addEventListener("click", function() {
     function validateHuespedes () {
         let huespedes = [];
         for (i=0 ; i < iHuespedes; i++) {
-            let nombre2 = prompt ("Ingrese el nombre y apellido del/la huésped número " + parseInt(i+1));
+            let nombre2 = prompt (`Ingrese el nombre y apellido del/la huésped número ${parseInt(i+1)}`);
             checked = 0;
             while (checked === 0) {
                 if (nombre2 === ""){
                     alert ("No ingresaste el nombre y apellido");
-                    nombre2 = prompt ("Ingrese el nombre y apellido del/la huésped número " + parseInt(i+1));
+                    nombre2 = prompt (`Ingrese el nombre y apellido del/la huésped número ${parseInt(i+1)}`);
                 }
                 else if (/^[0-9]+$/.test(nombre2) === true) {
                     alert ("Ingresa un nombre y apellido válido sin números");
-                    nombre2 = prompt ("Ingrese el nombre y apellido del/la huésped número " + parseInt(i+1));
+                    nombre2 = prompt (`Ingrese el nombre y apellido del/la huésped número ${parseInt(i+1)}`);
                 }
                 else {
                     huespedes.push (nombre2);
@@ -151,7 +151,7 @@ simuladorBtn.addEventListener("click", function() {
             else {
                 //nuevaReserva.email = email;
                 
-                alert ("Quedó registrada tu consulta por una estadía de " + iDias + " días para " + iHuespedes + " personas. A la brevedad, te enviaremos toda la información por email. Gracias!");
+                alert (`Quedó registrada tu consulta por una estadía de ${iDias} días para ${iHuespedes} personas. A la brevedad, te enviaremos toda la información por email. Gracias!`);
                 checked = 1;
                 return email;
             } 
@@ -188,9 +188,34 @@ simuladorBtn2.addEventListener("click", function() {
         console.log (BusquedaReserva);
     
     if (BusquedaReserva.length === 0) {
-    console.log("No se encontró ninguna búsqueda bajo ese nombre.");
+    console.log(`No se encontró ninguna búsqueda bajo el nombre ${busqueda}` );
     } else {
-        console.log("Se encontraron las siguientes reservas bajo el nombre", busqueda, ": ", BusquedaReserva);
+        console.log(`Se encontraron las siguientes reservas bajo el nombre ${busqueda}:`);
+        BusquedaReserva.forEach((reserva) => {
+            console.log(`Detalles de la reserva: 
+                Número de reserva: ${reserva.nroReserva} 
+                Cantidad de días: ${reserva.cantDias} 
+                Cantidad de huéspedes: ${reserva.cantHuespedes} 
+                Huéspedes: ${reserva.huespedes.join(', ')} 
+                Email: ${reserva.email}
+            `);
+        });
+  
+        /***** AYUDAAAA.**********
+   *  CÓMO HAGO PARA HACERLO CON MAP POR LA INMUTABILIDAD? 
+ QUISE HACERLO PERO SÓLO ME LO ACEPTA EN CAMEL CASE, NO ME ACEPTA BIEN REDACTADO
+ BusquedaReserva.map (el) => {
+            return {
+                Nro de reserva: el.nroReserva,
+                Cantidad de días: el.cantDias,
+                Cantidad de huéspedes: el.cantHuespedes,
+                Huéspedes: el.huespedes,
+                Email: el.email,
+            }
+        }
+     */
+
+    
     }
     
 })
