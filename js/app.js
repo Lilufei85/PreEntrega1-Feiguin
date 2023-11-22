@@ -185,37 +185,23 @@ const simuladorBtn2 = document.getElementById("buscarReserva");
 simuladorBtn2.addEventListener("click", function() {
     let busqueda = prompt ("A nombre de quién está la reserva que buscás?");
         const BusquedaReserva = reservas.filter ( (el) => el.huespedes.includes (busqueda));
+        // AYUDAAAA const BusquedaReserva = reservas.filter ( (el) => (el.huespedes.toLowerCase()).includes ( busqueda.toLowerCase() ));
         console.log (BusquedaReserva);
     
     if (BusquedaReserva.length === 0) {
-    console.log(`No se encontró ninguna búsqueda bajo el nombre ${busqueda}` );
+    alert(`No se encontró ninguna búsqueda bajo el nombre ${busqueda}` );
     } else {
         console.log(`Se encontraron las siguientes reservas bajo el nombre ${busqueda}:`);
-        BusquedaReserva.forEach((reserva) => {
+        BusquedaReserva.map((el) => {
+            alert ("Mira tu/s reserva/s en la consola")
             console.log(`Detalles de la reserva: 
-                Número de reserva: ${reserva.nroReserva} 
-                Cantidad de días: ${reserva.cantDias} 
-                Cantidad de huéspedes: ${reserva.cantHuespedes} 
-                Huéspedes: ${reserva.huespedes.join(', ')} 
-                Email: ${reserva.email}
-            `);
-        });
-  
-        /***** AYUDAAAA.**********
-   *  CÓMO HAGO PARA HACERLO CON MAP POR LA INMUTABILIDAD? 
- QUISE HACERLO PERO SÓLO ME LO ACEPTA EN CAMEL CASE, NO ME ACEPTA BIEN REDACTADO
- BusquedaReserva.map (el) => {
-            return {
-                Nro de reserva: el.nroReserva,
-                Cantidad de días: el.cantDias,
-                Cantidad de huéspedes: el.cantHuespedes,
-                Huéspedes: el.huespedes,
-                Email: el.email,
-            }
+                Número de reserva: ${el.nroReserva}, 
+                Cantidad de días: ${el.cantDias}, 
+                Cantidad de huéspedes: ${el.cantHuespedes}, 
+                Huéspedes: ${el.huespedes.join(', ')} 
+                Email: ${el.email}
+                `);
+            });
         }
-     */
+    });   
 
-    
-    }
-    
-})
